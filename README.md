@@ -1,74 +1,73 @@
 ```
-str: text
-num> 42
-txt|
-	Lorem ipsum dolor sit amet
-	on a single line!
-arr>
-	-> 42
-	-: text
-	-|
-		multiline text
-		goes here
-	-
-		this: here
-		is: nesting
-		woo>
-			-: hoo
-			-> true
-```
+# Tabbed Serialization Language (TAS)
+# ---
+# Example
 
-```
-str : text
-num > 42
-txt :>
-	Lorem ipsum dolor sit amet
-	on a single line!
-arr >
-	-> 42
-	-: text
-	-:>
-		multiline text
-		goes here
-	->
-		this : here
-		is : nesting
-		woo >
-			-: hoo
-			-> true
-obj >
-    foo : bar
-    bar > 42
-    qux :>
-        Hello this is multiline.
-        Yep it is.
-```
+# Simple strings:
+title: Hello World!
 
-```
-str: text
+# No need for quotes or escapes:
+content: # : = > {} [] ' "
+
+# Multi-line strings:
+content:
+	This string is actually
+	on a single line.
+
+	To add newlines, you put blank lines.
+
+# Booleans:
+isYaml= false
+
+# Numbers:
+num= 1,238,984.92
+
+# Primitive vs string:
+bool= true
+boolstr: true
 num= 42
-txt:
-	Lorem ipsum dolor sit amet \
-	on a single line!
-arr>
-	= 42
-	: text
-	:
-		multiline text \
-		goes here
-	>
-		this: here
-		is: nesting
-		woo>
-			: hoo
-			= true
-	>	foo: bar
-	>	>	deep: yeah
-	>	>	nested= true
+numstr: 42
+
+# Objects:
 obj>
 	foo: bar
-	bar= 42
-	qux:
-		Hello this is multiline.
-		Yep it is.
+	num= 64
+	nest>
+		baz: qux
+		inner= true
+
+# Arrays:
+arr>
+	>
+		with newline= true
+
+	>	without newline= true
+
+	>	>	>	deep= true
+
+	>
+		>
+			also deep= true
+
+# ----------
+# Edge cases
+# ----------
+
+# Special tokens in keys are escaped:
+\#\:\=\>: value
+
+# Empty string as key:
+\: value
+
+# Space as key
+\ : value
+
+# Whitespace as key:
+\n\t: value
+
+# Empty object:
+obj>}
+
+# Empty array:
+arr>]
 ```
