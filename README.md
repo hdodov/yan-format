@@ -63,7 +63,7 @@ arr>
 \ : value
 
 # Two spaces as key
-  : value
+\  : value
 
 # Whitespace as key:
 \n\t: value
