@@ -57,10 +57,13 @@ arr>
 \#\:\=\>: value
 
 # Empty string as key:
-\: value
+ : value
 
 # Space as key
 \ : value
+
+# Two spaces as key
+  : value
 
 # Whitespace as key:
 \n\t: value
