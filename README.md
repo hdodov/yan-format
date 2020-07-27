@@ -7,14 +7,13 @@
 title: Hello World!
 
 # No need for quotes or escapes:
-content: # : = > {} [] ' "
+content: # : = > {} [] ' " \
 
 # Multi-line strings:
 content:
-	This string is actually
-	on a single line.
-
-	To add newlines, you put blank lines.
+	The quick brown \
+	fox is on \
+	a single line.
 
 # Booleans:
 isYaml= false
