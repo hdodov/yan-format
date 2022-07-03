@@ -136,7 +136,7 @@ Objects lead us to arrays, which could behave just like objects, except they wil
 array>
     : string
     = 42
-    >    object= true
+    >   object= true
         nested= true
 ```
 
