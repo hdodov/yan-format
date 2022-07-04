@@ -4,6 +4,8 @@ Hristi**YAN**'s attempt at a simpler YAML.
 
 The goal of this format is to merge the simplicity and predictability of JSON with the ergonomics of YAML.
 
+![Syntax comparison between YAML and YAN](./syntax-comparison.png)
+
 ## Overview
 
 The official [YAML spec](https://yaml.org/spec/1.2.2/) is quite lengthy and describes an abundance of features. Despite that, the author still has to think about parsing details of the syntax when doing simple things, such as mapping values. For example, when parsed with the [`yaml` npm package](https://github.com/eemeli/yaml), the following YAML is invalid:
