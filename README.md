@@ -418,7 +418,7 @@ Error: Empty property "unknown" not explicitly defined as object or array.
 
 #### Backslash in Multi-Line Strings
 
-A backslash can appear anywhere in a multi-line string, except for the end of a line, where it escapes the following newline character.
+A backslash can appear almost anywhere in a multi-line string without having to be escaped. The only exception is when it appears at the end of a line, where it negates the following newline character.
 
 ```yan
 text:
@@ -430,7 +430,7 @@ text:
 { "text": "back \\ slash new line" }
 ```
 
-The reason for that is, again, to allow authors to care less about parsing. If a backslash appears at the end of a line, it's most likely intentional. If it appears in the middle of a line, it probably isn't.
+The reason for that is, again, to allow authors to care less about parsing. After all, if a backslash appears at the end of a line, it's most likely intentional. If it appears in the middle of a line, it probably isn't and is just part of the content.
 
 Note that a double backslash at the end of a line essentially results in a single backslash and no newline:
 
