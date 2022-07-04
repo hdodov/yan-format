@@ -6,19 +6,14 @@ The goal of this format is to merge the simplicity and predictability of JSON wi
 
 ## Overview
 
-The official [YAML spec](https://yaml.org/spec/1.2.2/) is quite lengthy and describes an abundance of features. Despite that, the author still has to think about parsing details of the syntax when doing simple things, such as mapping values. For example, the following YAML is invalid:
+The official [YAML spec](https://yaml.org/spec/1.2.2/) is quite lengthy and describes an abundance of features. Despite that, the author still has to think about parsing details of the syntax when doing simple things, such as mapping values. For example, when parsed with the [`yaml` npm package](https://github.com/eemeli/yaml), the following YAML is invalid:
 
 ```yaml
 test: The YAML spec is short: just 6719 lines.
-```
 
-When parsed with the [`yaml` npm package](https://github.com/eemeli/yaml), it throws:
-
-```
-YAMLParseError: Nested mappings are not allowed in compact mappings at line 1, column 7:
-
-test: The YAML spec is short: just 6719 lines.
-      ^
+# YAMLParseError: Nested mappings are not allowed in compact mappings at line 1, column 7:
+# test: The YAML spec is short: just 6719 lines.
+#       ^
 ```
 
 To have a colon `:` character, we have to wrap the key in quotes to get it working:
@@ -31,13 +26,10 @@ But now, suppose we want to change `The YAML spec` to `YAML's spec`. Since YAML 
 
 ```yaml
 test: 'YAML's spec is short: just 6719 lines.'
-```
 
-```
-YAMLParseError: Nested mappings are not allowed in compact mappings at line 1, column 7:
-
-test: 'YAML's spec is short: just 6719 lines.'
-      ^
+# YAMLParseError: Nested mappings are not allowed in compact mappings at line 1, column 7:
+# test: 'YAML's spec is short: just 6719 lines.'
+#       ^
 ```
 
 To fix that, we have to switch the single quotes with double quotes:
@@ -50,13 +42,10 @@ Now, suppose we want to change `short` to `"short"`. We'll have the same issue w
 
 ```yaml
 test: "YAML's spec is "short": just 6719 lines."
-```
 
-```
-YAMLParseError: Nested mappings are not allowed in compact mappings at line 1, column 7:
-
-test: "YAML's spec is "short": just 6719 lines."
-      ^
+# YAMLParseError: Nested mappings are not allowed in compact mappings at line 1, column 7:
+# test: "YAML's spec is "short": just 6719 lines."
+#       ^
 ```
 
 Finally, we have to escape the double quotes to get it working:
